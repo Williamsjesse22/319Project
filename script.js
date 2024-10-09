@@ -1,5 +1,5 @@
 // Wait for amCharts to be ready
-am4core.ready(function() {
+am4core.ready(function () {
     // Use themes
     am4core.useTheme(am4themes_animated);
 
@@ -22,7 +22,7 @@ am4core.ready(function() {
     chart.deltaLatitude = -20;
 
     // Limit vertical rotation (avoid extreme polar angles)
-    chart.adapter.add("deltaLatitude", function(deltaLatitude) {
+    chart.adapter.add("deltaLatitude", function (deltaLatitude) {
         return am4core.math.fitToRange(deltaLatitude, -70, 70); // Limit between -70 and 70 degrees
     });
 
@@ -46,9 +46,11 @@ am4core.ready(function() {
     const hs = polygonTemplate.states.create("hover");
     hs.properties.fill = am4core.color("#deb7ad");
 
-    // Click event
-    polygonTemplate.events.on("hit", function(ev) {
-        console.log(ev.target.dataItem.dataContext.name + " was clicked.");
+    // Click event for polygons
+    polygonTemplate.events.on("hit", function (ev) {
+        const countryName = ev.target.dataItem.dataContext.name;
+        console.log(countryName + " was clicked.");
+        fetchPhotos(countryName); // Fetch photos based on the clicked country
     });
 
     // Mask the poles by adding invisible "cutout" polygons over them
@@ -62,7 +64,7 @@ am4core.ready(function() {
     northPole.strokeOpacity = 0; // Remove stroke
 
     // Add auto-rotation
-    chart.events.on("ready", function() {
+    chart.events.on("ready", function () {
         rotateGlobe();
     });
 
@@ -74,7 +76,62 @@ am4core.ready(function() {
     }
 
     // Handle window resize
-    window.addEventListener("resize", function() {
+    window.addEventListener("resize", function () {
         chart.invalidateSize();
     });
+
+    // Fetch photos from Unsplash API based on the country name
+    function fetchPhotos(countryName) {
+        const accessKey = 'tJ09kKCBN7Cj2lrA_wNNOdGoAdL093PEtcTZRrVVVeM'; // Replace with your Unsplash access key
+        const url = `https://api.unsplash.com/search/photos?query=${countryName}&client_id=${accessKey}`;
+        
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                displayGallery(data.results); // Pass results to displayGallery function
+            })
+            .catch(error => console.error('Error fetching photos:', error));
+    }
+
+    // Display gallery on the left side
+    function displayGallery(photos) {
+        const galleryContainer = document.getElementById('gallery'); // Ensure this element exists in your HTML
+        galleryContainer.innerHTML = ''; // Clear previous gallery content
+        galleryContainer.style.display = 'block'; // Show the gallery
+
+        photos.forEach(photo => {
+            const img = document.createElement('img');
+            img.src = photo.urls.small; // Use the small URL for thumbnails
+            img.alt = photo.description || 'Image'; // Alt text for accessibility
+            img.style.width = '100px'; // Set desired width for images
+            img.style.margin = '5px';
+            galleryContainer.appendChild(img); // Append image to gallery
+        });
+
+        // Shift the globe
+        chart.deltaLongitude -= 20; // Shift left when gallery is displayed
+    }
+
+    // Close the gallery
+    function closeGallery() {
+        const galleryContainer = document.getElementById('gallery');
+        galleryContainer.style.display = 'none'; // Hide the gallery
+        chart.deltaLongitude += 20; // Shift globe back to center
+    }
+
+    // Create close button for gallery
+    const closeButton = document.createElement('button');
+    closeButton.innerText = 'Close Gallery';
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '20px';
+    closeButton.style.left = '20px';
+    closeButton.onclick = closeGallery; // Attach click event to close function
+    document.body.appendChild(closeButton); // Add button to the body
+
 }); // end am4core.ready()

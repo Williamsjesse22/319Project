@@ -5,10 +5,46 @@
     <title>Interactive Spinning Globe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./styles.css" />
+    <style>
+        /* Additional styles for positioning the gallery */
+        #gallery {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 100%; /* Position to the right of the globe */
+            transform: translateY(-50%); /* Adjust to truly center */
+            width: 300px; /* Adjust as needed */
+            height: 80vh; /* Adjust as needed */
+            overflow-y: auto; /* Scrollable if content overflows */
+            background-color: white; /* Background for the gallery */
+            border: 1px solid #ccc; /* Optional border */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+            z-index: 10; /* Ensure it appears above other content */
+        }
+
+        #closeGallery {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 10px; /* Adjust position as needed */
+            right: 10px; /* Adjust position as needed */
+            padding: 10px;
+            background-color: #f44336; /* Red background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <!-- amCharts Globe Container -->
     <div id="chartdiv"></div>
+    
+    <!-- Gallery Container -->
+    <div id="gallery">
+        <button id="closeGallery">Close Gallery</button>
+        <div id="galleryContent"></div>
+    </div>
 
     <!-- amCharts Libraries -->
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
@@ -16,7 +52,7 @@
     <script src="https://www.amcharts.com/lib/4/geodata/continentsLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-
+    
     <!-- Custom JavaScript -->
     <script src="./script.js"></script>
 </body>
