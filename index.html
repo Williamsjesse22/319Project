@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Interactive Spinning Globe</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./styles.css" />
-</head>
-<body>
-    <!-- amCharts Globe Container -->
-    <div id="chartdiv"></div>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Interactive Spinning Globe with Sticky Notes Gallery</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<!-- amCharts Globe Container -->
+		<div id="chartdiv"></div>
 
-    <!-- amCharts Libraries -->
-    <script src="https://www.amcharts.com/lib/4/core.js"></script>
-    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
-    <script src="https://www.amcharts.com/lib/4/geodata/continentsLow.js"></script>
-    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
-    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+		<!-- Sticky Note Gallery Container -->
+		<article class="post-it">
+			<div class="post-it_content">
+				<h4 id="country-name">Click on a country to load images</h4>
+				<div id="galleryContent"></div>
+				<div class="shadow shadow--right"></div>
+				<div class="shadow shadow--corner"></div>
+				<div class="shadow shadow--bottom"></div>
+			</div>
+			<div class="trapezoid"></div>
+			<img
+				src="http://icon-icons.com/icons2/165/PNG/256/mapmarker_pushpin_left_azure_23001.png"
+				alt=""
+				class="pin" />
+		</article>
 
-    <!-- Custom JavaScript -->
-    <script src="./script.js"></script>
-</body>
+		<!-- amCharts Libraries -->
+		<script src="https://www.amcharts.com/lib/4/core.js"></script>
+		<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+		<script src="https://www.amcharts.com/lib/4/geodata/continentsLow.js"></script>
+		<script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+		<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+		<div class="stack" id="stack">
+			<div class="card" id="card">
+		</div>
+
+		<!-- Custom JavaScript -->
+		<script src="./script.js"></script>
+	</body>
 </html>
