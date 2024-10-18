@@ -1,7 +1,8 @@
 let importedCountryName = null;
 
-function setCountryName(param) {
+export function setCountryName(param) {
 	importedCountryName = param;
+	console.log(param);
 }
 
 am4core.ready(function () {
@@ -223,10 +224,10 @@ am4core.ready(function () {
 		galleryContainer.appendChild(subregion);
 		galleryContainer.appendChild(languages);
 	}
-
-	if (importedCountryName !== '') {
+	console.log(importedCountryName);
+	if (importedCountryName !== null && importedCountryName !== 'All') {
 		const url = `https://restcountries.com/v3.1/name/${importedCountryName}`;
-
+		console.log(importedCountryName);
 		// Fetch country data based on the country name
 		fetch(url)
 			.then((response) => {

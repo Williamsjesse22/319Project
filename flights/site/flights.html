@@ -17,6 +17,15 @@
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"> </script>
 		<![endif]--> 
+    <!-- amCharts Libraries -->
+		<script src="https://www.amcharts.com/lib/4/core.js"></script>
+		<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+		<script src="https://www.amcharts.com/lib/4/geodata/continentsLow.js"></script>
+		<script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+		<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <script type="module" src="./flights.js"></script>
+    
   </head>
   <body>
     <!-- Page-->
@@ -107,20 +116,20 @@
                       <div class="col-sm-12">
                         <label class="form-label-outside">From</label>
                         <div class="form-wrap form-wrap-inline">
-                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
-                            <option value="1">New York</option>
-                            <option value="2">Lisbon</option>
-                            <option value="3">Stockholm</option>
+                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city" id="from">
+                            <option value="New York">New York</option>
+                            <option value="Lisbon">Lisbon</option>
+                            <option value="Stockholm">Stockholm</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-12">
                         <label class="form-label-outside">To</label>
                         <div class="form-wrap form-wrap-inline">
-                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
-                            <option value="1">Chicago</option>
-                            <option value="2">Madrid</option>
-                            <option value="3">Paris</option>
+                          <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city" id="to">
+                            <option value="Chicago">Chicago</option>
+                            <option value="Madrid">Madrid</option>
+                            <option value="Paris">Paris</option>
                           </select>
                         </div>
                       </div>
@@ -162,7 +171,7 @@
                       </div>
                     </div>
                     <div class="form-wrap form-button">
-                      <button class="button button-block button-secondary" type="submit" src="#">search flight</button>
+                      <button class="button button-block button-secondary" type="submit" id="dest">search flight</button>
                     </div>
                   </form>
                 </div>
