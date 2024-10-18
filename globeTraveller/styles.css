@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+
+/* Global Styles */
+html,
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 62.5%;
+	font-size: 10px;
+	background-color: #d3d3d3;
+	background: linear-gradient(145deg, #55566a 0%, #131318 76%);
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+}
+
+h4 {
+	font-size: 40px;
+	font-weight: 700;
+	margin-top: -10px;
+}
+p {
+	font-size: 20px;
+}
+
+/* Navbar Section */
+.nav {
+	width: 100%;
+	height: 65px;
+	position: fixed;
+	line-height: 65px;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	transition: all 0.4s ease;
+}
+
+.nav div.logo {
+	float: left;
+	width: auto;
+	height: auto;
+	padding-left: 3rem;
+}
+
+.nav div.logo a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 2.5rem;
+}
+
+.nav div.logo a:hover {
+	color: #00e676;
+}
+
+.nav div.main_list {
+	height: 65px;
+	float: right;
+}
+
+.nav div.main_list ul {
+	display: flex;
+	list-style: none;
+	height: 65px;
+	margin: 0;
+	padding: 0;
+}
+
+.nav div.main_list ul li {
+	padding-right: 3rem;
+}
+
+.nav div.main_list ul li a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 2.4rem;
+	line-height: 65px;
+}
+
+.nav div.main_list ul li a:hover {
+	color: #00e676;
+}
+
+/* Home Section */
+.home {
+	width: 100%;
+	height: 100vh;
+	background-image: url(https://images.unsplash.com/photo-1498550744921-75f79806b8a7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b0f6908fa5e81286213c7211276e6b3d&auto=format&fit=crop&w=1500&q=80);
+	background-position: center top;
+	background-size: cover;
+}
+
+/* Sticky Note Styling */
+.post-it {
+	position: absolute;
+	margin-top: 150px;
+	right: 50px;
+	display: inline-block;
+	left: 70%;
+}
+
+.post-it_content {
+	background: linear-gradient(to bottom, #fbee9a 0%, #e5d090 100%);
+	border-top: 4px solid #e5d090;
+	height: auto;
+	min-height: 300px;
+	padding: 50px 20px 8px 20px;
+	position: relative;
+	width: 70%;
+}
+
+.shadow {
+	background: transparent;
+	position: absolute;
+	z-index: -1;
+}
+
+.shadow--right {
+	box-shadow: 150px 0 30px -5px rgba(0, 0, 0, 0.4);
+	height: calc(100% - 20px);
+	right: 150px;
+	top: 25px;
+	transform: rotate(-1deg);
+	width: 100px;
+}
+
+.shadow--corner {
+	bottom: -12px;
+	box-shadow: 0 12px 10px 0 rgba(0, 0, 0, 0.75);
+	height: 1px;
+	right: 5px;
+	transform: rotate(-45deg);
+}
+
+.trapezoid {
+	border-top: 35px solid #e5d090;
+	border-right: 35px solid transparent;
+	height: 0;
+	width: 300px;
+}
+
+.pin {
+	width: 80px;
+	position: absolute;
+	top: -50px;
+	left: 0;
+}
+
+/* Gallery Styling */
+#galleryContent img {
+	width: 100px;
+	margin: 5px;
+}
+
+
+/* Stacked Cards */
+.stack {
+	top: 950px;
+	left: 1850px;
+	position: relative;
+}
+
+.card {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 350px;
+	height: 500px;
+	border-radius: 2rem;
+	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25),
+		0 15px 20px 0 rgba(0, 0, 0, 0.125);
+	transition: transform 0.6s;
+}
+
+.card-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	object-fit: cover;
+}
+
+.card:nth-last-child(n + 5) {
+	--x: calc(-50% + 90px);
+	transform: translate(var(--x), -50%) scale(0.85);
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.01);
+}
+
+.card:nth-last-child(4) {
+	--x: calc(-50% + 60px);
+	transform: translate(var(--x), -50%) scale(0.9);
+}
+
+.card:nth-last-child(3) {
+	--x: calc(-50% + 30px);
+	transform: translate(var(--x), -50%) scale(0.95);
+}
+
+.card:nth-last-child(2) {
+	--x: calc(-50%);
+	transform: translate(var(--x), -50%) scale(1);
+}
+
+.card:nth-last-child(1) {
+	--x: calc(-50% - 30px);
+	transform: translate(var(--x), -50%) scale(1.05);
+}
+
+.card:nth-last-child(1) img {
+	box-shadow: 0 1px 5px 5px rgba(255, 193, 111, 0.5);
+}
+
+.swap {
+	animation: swap 1.3s ease-out forwards;
+}
+
+/* amCharts Globe */
+#chartdiv {
+	left: -15%;
+	margin-top: 150px;
+	width: 100%;
+	height: 75vh;
+	position: absolute;
+	transition: left 0.5s ease;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	.container {
+		margin: 0;
+	}
+}
+
+@media all and (max-width: 700px) {
+	.myP {
+		padding: 2%;
+	}
+}
