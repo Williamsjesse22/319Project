@@ -1,4 +1,9 @@
-// Wait for amCharts to be ready
+let importedCountryName = null;
+
+function setCountryName(param) {
+	importedCountryName = param;
+}
+
 am4core.ready(function () {
 	// Use themes
 	am4core.useTheme(am4themes_animated);
@@ -217,5 +222,89 @@ am4core.ready(function () {
 		galleryContainer.appendChild(region);
 		galleryContainer.appendChild(subregion);
 		galleryContainer.appendChild(languages);
+	}
+
+	if (importedCountryName !== '') {
+		const url = `https://restcountries.com/v3.1/name/${importedCountryName}`;
+
+		// Fetch country data based on the country name
+		fetch(url)
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.json();
+			})
+			.then((data) => {
+				if (data && data.length > 0) {
+					const countryData = data[0];
+					const latlng = countryData.latlng; // Get latitude and longitude
+					if (latlng) {
+						const [latitude, longitude] = latlng;
+						console.log(
+							`Latitude: ${latitude}, Longitude: ${longitude} for ${importedCountryName}`
+						);
+						placeMarker(latitude, longitude); // Place the marker on the globe
+					} else {
+						console.log(
+							`Latitude and Longitude not available for ${importedCountryName}`
+						);
+					}
+				} else {
+					console.log(`No data found for ${importedCountryName}`);
+				}
+			})
+			.catch((error) =>
+				console.error(
+					`Error fetching latitude and longitude for ${importedCountryName}:`,
+					error
+				)
+			);
+	}
+
+	// Function to place a marker at the specified latitude and longitude
+	function placeMarker(longitude, latitude) {
+		// Convert geographic coordinates to pixel coordinates
+		const point = chart.projection.convert({
+			longitude: longitude,
+			latitude: latitude,
+		});
+
+		// Define your SVG marker
+		const svgMarker = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30">
+            <circle cx="10" cy="10" r="10" fill="blue" />
+        </svg>
+    `;
+
+		// Create marker element
+		const marker = document.createElement('div');
+		marker.id = 'bounce-marker'; // Use the same ID as in your existing animation code
+		marker.className = 'float'; // Apply CSS class for animations
+		marker.style.position = 'absolute'; // Positioning
+		marker.style.transform = `translate(${point.x}px, ${point.y}px)`; // Position based on converted coordinates
+
+		// Set the inner HTML to your SVG marker
+		marker.innerHTML = svgMarker;
+
+		// Append the marker to the chart container
+		chart.chartContainer.htmlContainer.appendChild(marker);
+
+		// Apply animations (you can keep your existing animation code)
+		TweenMax.fromTo(
+			'#bounce-marker',
+			2.4,
+			{
+				opacity: 0,
+				y: `-1000px`,
+				scaleY: 2,
+			},
+			{
+				y: '0px',
+				opacity: 1,
+				scaleY: 1,
+				ease: Bounce.easeOut,
+			}
+		);
 	}
 });
