@@ -212,3 +212,54 @@ p {
 		padding: 2%;
 	}
 }
+
+.float {
+	position: absolute;
+	width: 40px; /* Adjust width */
+	height: 40px; /* Adjust height */
+	animation: hover 1.3s ease-in-out infinite alternate;
+}
+
+.float svg {
+	/* Your SVG fill color or any additional styles */
+	animation: hover 1.3s ease-in-out infinite alternate;
+}
+
+.marker-shadow {
+	filter: blur(1px);
+	background: rgba(0, 0, 0, 0.5);
+	width: 25.2px;
+	height: 5.6px;
+	animation: shadow2 1.3s ease-in-out infinite alternate;
+}
+
+@keyframes hover {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		transform: translate3d(0, -6px, 0);
+	}
+}
+
+@keyframes shadow2 {
+	from {
+		transform: scale(0.95) translate3d(0, 0, 0);
+	}
+	to {
+		transform: scale(1.2) translate3d(0, 0, 0);
+	}
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	.container {
+		margin: 0;
+	}
+}
+
+@media all and (max-width: 700px) {
+	.myP {
+		padding: 2%;
+	}
+}
