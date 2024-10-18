@@ -1,50 +1,180 @@
-/* styles.css */
-
 /* Reset and Basic Styles */
+
 body {
-	margin-top: 100px;
-	overflow: hidden;
+	margin: 0;
 	width: 100vw;
 	height: 100vh;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol';
-	background-color: #d3d3d3; /* Light gray background */
-	position: relative; /* For positioning child elements */
+	font-family: 'Quicksand', sans-serif;
+	background-color: #d3d3d3;
+	background: linear-gradient(145deg, #55566a 0%, #131318 76%);
+	position: relative;
+	overflow: hidden;
+}
+
+h4 {
+	font-size: 28px;
+	font-weight: 700;
+}
+
+/* Main Layout */
+main {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+	place-items: center;
+	min-height: 100vh;
+}
+
+/* Content */
+.content {
+	padding-left: 120px;
+	color: #c7c7c7c9;
+	user-select: none;
+}
+
+.content p {
+	font-size: clamp(0.9rem, 4vw, 1.2rem);
+	line-height: 1.6;
+	padding-right: 100px;
 }
 
 /* amCharts Globe */
 #chartdiv {
+	left: -10%;
+	margin-top: 100px;
 	width: 100%;
-	height: 75vh; /* sclaing for the globe  */
-	background-color: transparent; /* Transparent to show any background if set */
+	height: 75vh;
+	position: absolute;
+	transition: left 0.5s ease;
 }
 
-#gallery {
-	width: 25%;
+/* Sticky Note Styling */
+.post-it {
+	position: absolute;
+	margin-top: 100px;
+	right: 50px;
+	display: inline-block;
+	left: 70%;
+}
+
+.post-it_content {
+	background: linear-gradient(to bottom, #fbee9a 0%, #e5d090 100%);
+	border-top: 4px solid #e5d090;
+	height: auto;
+	min-height: 300px;
+	padding: 50px 20px 8px 20px;
+	position: relative;
+	width: 70%;
+}
+
+.shadow {
+	background: transparent;
+	position: absolute;
+	z-index: -1;
+}
+
+.shadow--right {
+	box-shadow: 150px 0 30px -5px rgba(0, 0, 0, 0.4);
+	height: calc(100% - 20px);
+	right: 150px;
+	top: 25px;
+	transform: rotate(-1deg);
+	width: 100px;
+}
+
+.shadow--corner {
+	bottom: -12px;
+	box-shadow: 0 12px 10px 0 rgba(0, 0, 0, 0.75);
+	height: 1px;
+	right: 5px;
+	transform: rotate(-45deg);
+}
+
+.trapezoid {
+	border-top: 35px solid #e5d090;
+	border-right: 35px solid transparent;
+	height: 0;
+	width: 300px;
+}
+
+.pin {
+	width: 80px;
+	position: absolute;
+	top: -50px;
+	left: 0;
+}
+
+/* Gallery Styling */
+#galleryContent img {
+	width: 100px;
+	margin: 5px;
+}
+
+/* Stacked Cards */
+.stack {
+	top: 900px;
+	left: 700px;
+	position: relative;
+}
+
+.card {
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	width: 350px;
+	height: 500px;
+	border-radius: 2rem;
+	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25),
+		0 15px 20px 0 rgba(0, 0, 0, 0.125);
+	transition: transform 0.6s;
+	user-select: none;
+}
+
+.card:first-child {
+	display: block; /* Show the first card */
+}
+
+
+.card-img {
+	display: block;
+	width: 100%;
 	height: 100%;
-	display: none;
-	position: absolute;
-	right: 0;
-	top: 0;
-	background-color: rgba(255, 255, 255, 0.9);
-	overflow-y: auto;
-	z-index: 10;
+	border-radius: inherit;
+	object-fit: cover;
+	pointer-events: none;
 }
 
-#closeGallery {
-	display: none;
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	background-color: #c8b097;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 15px;
-	cursor: pointer;
+.card:nth-last-child(n + 5) {
+	--x: calc(-50% + 90px);
+	transform: translate(var(--x), -50%) scale(0.85);
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.01);
 }
 
-#closeGallery:hover {
-	background-color: #deb7ad;
+.card:nth-last-child(4) {
+	--x: calc(-50% + 60px);
+	transform: translate(var(--x), -50%) scale(0.9);
+}
+
+.card:nth-last-child(3) {
+	--x: calc(-50% + 30px);
+	transform: translate(var(--x), -50%) scale(0.95);
+}
+
+.card:nth-last-child(2) {
+	--x: calc(-50%);
+	transform: translate(var(--x), -50%) scale(1);
+}
+
+.card:nth-last-child(1) {
+	--x: calc(-50% - 30px);
+	transform: translate(var(--x), -50%) scale(1.05);
+}
+
+.card:nth-last-child(1) img {
+	box-shadow: 0 1px 5px 5px rgba(255, 193, 111, 0.5);
+}
+
+.swap {
+	animation: swap 1.3s ease-out forwards;
 }
