@@ -276,6 +276,27 @@ html p a:hover {
 /**
 * Body
 */
+
+.event-default-image img {
+	width: 500px; /* Set your preferred width */
+	height: 200px; /* Set your preferred height */
+	object-fit: cover; /* This keeps the image proportional, filling the dimensions without distortion */
+}
+
+.post-blog-image {
+	width: 600px;
+	height: 400px;
+	object-fit: cover;
+}
+
+.quote-box-image {
+	width: 100px; /* Set the width for the image */
+	height: 100px; /* Set the height for the image */
+	border-radius: 50%; /* Makes the image circular */
+	object-fit: cover; /* Ensures the image maintains aspect ratio */
+}
+
+  
 body {
 	font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	font-weight: 300;
@@ -6065,9 +6086,10 @@ textarea.form-input.form-input-lg {
 }
 
 .quote-boxed-image {
-	width: 100px;
-	height: auto;
-	border-radius: 50%;
+	width: 150px;  /* Set a fixed width */
+	height: 215px; /* Set a fixed height */
+	border-radius: 50%; /* Make the image circular */
+	object-fit: cover; /* Ensures the image fits the circle without distortion */
 }
 
 .quote-boxed-text,
