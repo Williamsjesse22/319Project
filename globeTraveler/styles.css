@@ -27,16 +27,17 @@ p {
 	font-size: 20px;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .nav .logo a, 
     .nav .main_navigation a,
     .nav .author-link a {
-        font-size: 2rem; /* Reduce font size for smaller screens */
+        font-size: 2rem; 
     }
     .nav {
-        padding: 0 10px; /* Adjust padding on smaller screens */
+        padding: 0 10px; 
     }
-}
+} 
+*/
 
 
 /* Navbar Section */
