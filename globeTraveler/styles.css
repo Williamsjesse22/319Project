@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
 
 /* Global Styles */
@@ -26,62 +27,62 @@ p {
 	font-size: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    .nav .logo a, 
+    .nav .main_navigation a,
+    .nav .author-link a {
+        font-size: 2rem; /* Reduce font size for smaller screens */
+    }
+    .nav {
+        padding: 0 10px; /* Adjust padding on smaller screens */
+    }
+}
+
+
 /* Navbar Section */
 .nav {
-	width: 100%;
-	height: 65px;
-	position: fixed;
-	line-height: 65px;
-	text-align: center;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	transition: all 0.4s ease;
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: space-between; /* Space between the left, center, and right sections */
+    align-items: center;
+    background-color: rgba(69, 64, 64, 0.929);
+    padding: 0 20px; /* Padding for the navbar */
+    box-sizing: border-box;
 }
 
-.nav div.logo {
-	float: left;
-	width: auto;
-	height: auto;
-	padding-left: 3rem;
+.nav .logo {
+    flex: 0 0 auto; /* Ensure the logo stays on the left */
 }
 
-.nav div.logo a {
-	text-decoration: none;
-	color: #fff;
-	font-size: 2.5rem;
+.nav .main_navigation {
+    flex: 1; /* This will center the Flights link */
+    display: flex;
+    justify-content: center;
 }
 
-.nav div.logo a:hover {
-	color: #00e676;
+.nav .author-link {
+    flex: 0 0 auto; /* Ensure the Authors link stays on the right */
+    display: flex;
+    justify-content: flex-end;
 }
 
-.nav div.main_list {
-	height: 65px;
-	float: right;
+.nav .logo a, 
+.nav .main_navigation a,
+.nav .author-link a {
+    color: #fff;
+    font-size: 2.5rem;
+    text-decoration: none;
 }
 
-.nav div.main_list ul {
-	display: flex;
-	list-style: none;
-	height: 65px;
-	margin: 0;
-	padding: 0;
+.nav .logo a:hover, 
+.nav .main_navigation a:hover,
+.nav .author-link a:hover {
+    color: #e69900;
 }
 
-.nav div.main_list ul li {
-	padding-right: 3rem;
-}
 
-.nav div.main_list ul li a {
-	text-decoration: none;
-	color: #fff;
-	font-size: 2.4rem;
-	line-height: 65px;
-}
 
-.nav div.main_list ul li a:hover {
-	color: #00e676;
-}
 
 /* Home Section */
 .home {

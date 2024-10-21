@@ -102,73 +102,79 @@
 **/
 
 /* Navbar Section */
+/* Global Navbar Styles */
 .nav {
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	line-height: 65px;
-	/* text-align: center; */
-	padding-top: 20px;
-	padding-bottom: 20px;
-	transition: all 0.4s ease;
-
-	/* display: flex; */
-	/* justify-content: space-between; */
-	/* align-items: center; */
-	
-	position: relative;
-  	z-index: 1000;
-
-	background-color: #555555;
+    width: 100%;
+    height: 65px;
+    position: fixed;
+    top: 0;
+    line-height: 65px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: all 0.4s ease;
+    z-index: 1000;
 }
 
 .nav div.logo {
-	float: left;
-	width: auto;
-	height: auto;
+    float: left;
+    padding-left: 3rem;
 }
 
 .nav div.logo a {
-	text-decoration: none;
-	color: #fff;
-	font-size: 2.5rem;
-}
-
-.nav div.logo a:hover {
-	color: #ffa900;
-	text-align: left;
+    text-decoration: none;
+    color: #fff;
+    font-size: 2.5rem;
 }
 
 .nav div.main_list {
-	height: 65px;
-	float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    flex-grow: 1;
 }
 
 .nav div.main_list ul {
     display: flex;
-    justify-content: space-between; /* Align items with even space between them */
     list-style: none;
-    height: 65px;
     margin: 0;
-    padding: 0 3rem; /* Add some padding to ensure the list isn't too close to the edges */
-	padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 0;
+    justify-content: space-around;
+    width: 50%;
 }
 
-/* .nav div.main_list ul li {
-	padding-right: 0rem;
-} */
+.nav div.main_list ul li {
+    padding: 0 1rem;
+}
 
 .nav div.main_list ul li a {
-	text-decoration: none;
-	color: #fff;
-	font-size: 2.4rem;
-	line-height: 65px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 2.4rem;
+    line-height: 65px;
 }
 
 .nav div.main_list ul li a:hover {
-	color: #ffa900;
-	text-align: right;
+    color: #e6ad00;
+}
+.navbar {
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.site-header {
+	background-color: rgba(0, 0, 0, 0.85);
+	-webkit-backdrop-filter: saturate(180%) blur(20px);
+	backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+	color: #8e8e8e;
+	transition: color 0.15s ease-in-out;
+}
+.site-header a:hover {
+	color: #fff;
+	text-decoration: none;
 }
 .bg-gradient.bg-secondary-2 {
 	background-image: -moz-linear-gradient(-39deg, #6d0eb1 59%, #080ab4 100%);
