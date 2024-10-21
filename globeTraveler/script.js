@@ -262,50 +262,5 @@ am4core.ready(function () {
 				)
 			);
 	}
-
-	// Function to place a marker at the specified latitude and longitude
-	function placeMarker(longitude, latitude) {
-		// Convert geographic coordinates to pixel coordinates
-		const point = chart.projection.convert({
-			longitude: longitude,
-			latitude: latitude,
-		});
-
-		// Define your SVG marker
-		const svgMarker = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30">
-            <circle cx="10" cy="10" r="10" fill="blue" />
-        </svg>
-    `;
-
-		// Create marker element
-		const marker = document.createElement('div');
-		marker.id = 'bounce-marker'; // Use the same ID as in your existing animation code
-		marker.className = 'float'; // Apply CSS class for animations
-		marker.style.position = 'absolute'; // Positioning
-		marker.style.transform = `translate(${point.x}px, ${point.y}px)`; // Position based on converted coordinates
-
-		// Set the inner HTML to your SVG marker
-		marker.innerHTML = svgMarker;
-
-		// Append the marker to the chart container
-		chart.chartContainer.htmlContainer.appendChild(marker);
-
-		// Apply animations (you can keep your existing animation code)
-		TweenMax.fromTo(
-			'#bounce-marker',
-			2.4,
-			{
-				opacity: 0,
-				y: `-1000px`,
-				scaleY: 2,
-			},
-			{
-				y: '0px',
-				opacity: 1,
-				scaleY: 1,
-				ease: Bounce.easeOut,
-			}
-		);
-	}
+	
 });
