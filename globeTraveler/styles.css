@@ -121,6 +121,12 @@ p {
 	height: 0;
 	width: 71%;
 }
+.pin {
+	width: 80px;
+	position: absolute;
+	top: -50px;
+	left: 0;
+}
 
 /* Stacked Cards */
 .stack {
