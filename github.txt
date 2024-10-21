@@ -1,3 +1,8 @@
-Globe Traveler URL: 
-Flights URL:
-Authors URL: 
+Globe Traveler URL: https://williamsjesse22.github.io/319Project/globeTraveler/index.html
+Flights URL: https://williamsjesse22.github.io/319Project/flights/site/flights.html
+Authors URL: https://williamsjesse22.github.io/319Project/authors/about.html
+
+NOTE for TA / person grading this
+for globeTraveler, I tested the code on my laptop which has a resolution of about 3k by 2k, this scales the css different, where possible I used percentages to allivate
+differences in resolution in the website, but this did not fix everything. So there are components that look larger than they should be or overlap, to fix this
+/ to see the proper functionality of the website you might have to zoom the page out to about 50% at most (assuming you are using a lower resolution computer).
