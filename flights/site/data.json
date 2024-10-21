@@ -1,0 +1,23 @@
+{
+    "flights": [
+      {
+        "from": "New York",
+        "to": "Chicago",
+        "price": "$300",
+        "image": "img/flight_ny_chicago.jpg"
+      },
+      {
+        "from": "Lisbon",
+        "to": "Madrid",
+        "price": "$200",
+        "image": "img/flight_lisbon_madrid.jpg"
+      },
+      {
+        "from": "Stockholm",
+        "to": "Paris",
+        "price": "$400",
+        "image": "img/flight_stockholm_paris.jpg"
+      }
+    ]
+  }
+  
